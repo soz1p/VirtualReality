@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-       
+
         m_animator = GetComponent<Animator>();
     }
 
@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
         m_animator.SetBool("Grounded", m_isGrounded);
         PlayerMove();
         JumpingAndLanding();
-        if (Input.GetKeyDown(KeyCode.LeftControl)){
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
             transform.localScale = new Vector3(2, 1, 2);
         }
         if (Input.GetKeyUp(KeyCode.LeftControl))
@@ -42,7 +43,9 @@ public class PlayerController : MonoBehaviour
 
         if (controller.isGrounded)
         {
-            m_velocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
+            m_velocity = new Vector3(horizontalInput, 0, verticalInput);
             m_velocity = m_velocity.normalized;
 
             if (Input.GetKey(KeyCode.LeftShift))
@@ -55,12 +58,12 @@ public class PlayerController : MonoBehaviour
             {
                 m_velocity.y = m_jumpForce;
             }
-            else if (m_velocity.magnitude > 0.5)
+            else if (horizontalInput != 0 || verticalInput != 0) // 입력이 있는 경우
             {
-                transform.LookAt(transform.position + m_velocity);
+                transform.forward = m_velocity; // 캐릭터를 입력 방향으로 회전
             }
         }
-        m_velocity.y -= gravity * Time.deltaTime; // y값이 계속 줄어들지만 character controller가 rigidbody와 collider 의 역할을 일부 수행해주기 때문에 하염없이 떨어지지 않는다.
+        m_velocity.y -= gravity * Time.deltaTime;
         controller.Move(m_velocity * m_moveSpeed * Time.deltaTime);
         m_isGrounded = controller.isGrounded;
     }
