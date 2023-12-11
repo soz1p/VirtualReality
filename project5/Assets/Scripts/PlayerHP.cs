@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class HealthBarController : MonoBehaviour
 {
     public Slider healthBar;
-    public float maxHealth = 1000f;
-    public float decreaseAmount = 10f;
+    public float maxHealth = 10000f;
+    public float decreaseAmount = 500f;
 
     private float currentHealth;
 
@@ -19,7 +19,7 @@ public class HealthBarController : MonoBehaviour
 
         StartCoroutine(AutoDecreaseHP());
     }
-
+   
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Fire"))
@@ -35,7 +35,6 @@ public class HealthBarController : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            // HP가 0 이하가 되면, 플레이어는 죽습니다. 이 부분은 게임에 따라 적절히 수정하시면 됩니다.
             Debug.Log("Player is dead");
         }
     }
@@ -43,7 +42,8 @@ public class HealthBarController : MonoBehaviour
     {
         while (true)
         {
-            DecreaseHealth(decreaseAmount / 10);
+            var decreaseRate = Input.GetKey(KeyCode.LeftControl) ? decreaseAmount / 50 : decreaseAmount / 5;
+            DecreaseHealth(decreaseRate);
             yield return new WaitForSeconds(2f);
         }
     }
