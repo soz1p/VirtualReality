@@ -16,6 +16,8 @@ public class HealthBarController : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
+
+        StartCoroutine(AutoDecreaseHP());
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +37,14 @@ public class HealthBarController : MonoBehaviour
         {
             // HP가 0 이하가 되면, 플레이어는 죽습니다. 이 부분은 게임에 따라 적절히 수정하시면 됩니다.
             Debug.Log("Player is dead");
+        }
+    }
+    private IEnumerator AutoDecreaseHP()
+    {
+        while (true)
+        {
+            DecreaseHealth(decreaseAmount / 10);
+            yield return new WaitForSeconds(2f);
         }
     }
 }
