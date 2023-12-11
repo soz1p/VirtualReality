@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HealthBarController : MonoBehaviour
 {
     public Slider healthBar;
-    public float maxHealth = 100f;
+    public float maxHealth = 1000f;
     public float decreaseAmount = 10f;
 
     private float currentHealth;
@@ -20,15 +20,21 @@ public class HealthBarController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("fire"))
+        if (other.CompareTag("Fire"))
         {
             DecreaseHealth(decreaseAmount);
         }
     }
 
-    private void DecreaseHealth(float amount)
+    public void DecreaseHealth(float amount)
     {
         currentHealth -= amount;
         healthBar.value = currentHealth;
+
+        if (currentHealth <= 0)
+        {
+            // HP가 0 이하가 되면, 플레이어는 죽습니다. 이 부분은 게임에 따라 적절히 수정하시면 됩니다.
+            Debug.Log("Player is dead");
+        }
     }
 }
