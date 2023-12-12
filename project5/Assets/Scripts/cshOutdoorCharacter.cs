@@ -58,9 +58,9 @@ public class cshOutdoorCharacter : MonoBehaviour
             {
                 m_velocity.y = m_jumpForce;
             }
-            else if (horizontalInput != 0 || verticalInput != 0) // ?????? ???? ????
+            else if (horizontalInput != 0 || verticalInput != 0) 
             {
-                transform.forward = m_velocity; // ???????? ???? ???????? ????
+                transform.forward = m_velocity; 
             }
         }
         m_velocity.y -= gravity * Time.deltaTime;

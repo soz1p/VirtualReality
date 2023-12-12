@@ -48,6 +48,11 @@ public class PlayerController : MonoBehaviour
             m_velocity = new Vector3(horizontalInput, 0, verticalInput);
             m_velocity = m_velocity.normalized;
 
+            // 마우스 움직임에 따른 회전
+            float horizontalMouseInput = Input.GetAxis("Mouse X");
+            float verticalMouseInput = -Input.GetAxis("Mouse Y");
+            transform.Rotate(verticalMouseInput, horizontalMouseInput, 0);
+
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 m_velocity *= 2.0f;
