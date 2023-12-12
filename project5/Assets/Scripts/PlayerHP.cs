@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HealthBarController : MonoBehaviour
@@ -36,6 +37,7 @@ public class HealthBarController : MonoBehaviour
         if (currentHealth <= 0)
         {
             Debug.Log("Player is dead");
+            SceneManager.LoadScene("DeadScene");
         }
     }
     private IEnumerator AutoDecreaseHP()
