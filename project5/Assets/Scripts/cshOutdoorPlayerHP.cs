@@ -49,7 +49,7 @@ public class cshOutdoorPlayerHP : MonoBehaviour
 
     private IEnumerator AutoDecreaseHP()
     {
-        while (true) // isSurvived? false? ?? ?? ??
+        while (!cshOutdoorCall.isSurvived) // isSurvived? false? ?? ?? ??
         {
             DecreaseHealth(decreaseAmount / 50);
             yield return new WaitForSeconds(0.075f);
