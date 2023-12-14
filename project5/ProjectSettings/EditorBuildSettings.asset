@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeadScene.unity
     guid: 4a0c263af9cca1749b871d153ecfff51
+  - enabled: 1
+    path: Assets/Scenes/OutdoorDeadScene.unity
+    guid: c9504d57f06dc4799a319c87d0046ade
   m_configObjects: {}

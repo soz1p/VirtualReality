@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - Door
+  - CallBox
   layers:
   - Default
   - TransparentFX
