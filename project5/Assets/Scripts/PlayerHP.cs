@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class HealthBarController : MonoBehaviour
 {
     public Slider healthBar;
-    public float maxHealth = 10000f;
+    public float maxHealth = 5000f;
     public float decreaseAmount = 500f;
 
     private float currentHealth;
@@ -46,7 +46,7 @@ public class HealthBarController : MonoBehaviour
         {
             var decreaseRate = Input.GetKey(KeyCode.LeftControl) ? decreaseAmount / 50 : decreaseAmount / 5;
             DecreaseHealth(decreaseRate);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
         }
     }
 }
