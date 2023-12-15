@@ -13,7 +13,7 @@ public class SpawnFire : MonoBehaviour
 
     IEnumerator SpawnAfterDelay()
     {
-        yield return new WaitForSeconds(5f); // 5초 대기
+        yield return new WaitForSeconds(1f); // 5초 대기
 
         StartCoroutine(Spawn());
     }
@@ -31,7 +31,7 @@ public class SpawnFire : MonoBehaviour
             newFire.tag = "Fire";
             newFire.SetActive(false); // 생성 즉시 비활성화
 
-            yield return new WaitForSeconds(5f); // 5초 대기
+            yield return new WaitForSeconds(1f); // 5초 대기
 
             newFire.SetActive(true); // 5초 후 활성화
 
@@ -45,7 +45,7 @@ public class SpawnFire : MonoBehaviour
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(10); // 플레이어의 체력을 10만큼 감소시킴
+                playerHealth.TakeDamage(100); // 플레이어의 체력을 10만큼 감소시킴
             }
         }
 
