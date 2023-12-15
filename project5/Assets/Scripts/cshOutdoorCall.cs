@@ -29,12 +29,12 @@ public class cshOutdoorCall : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.transform.position.y <= 30 && !isAssetCalled) // isAssetCalled? false? ?? ??? ??
+        if (player.transform.position.y <= 31 && !isAssetCalled) // isAssetCalled? false? ?? ??? ??
         {
-            Vector3 assetToCallPosition = player.transform.position + new Vector3(Random.Range(-100f, 100f), Random.Range(-10f, 10f), Random.Range(-100f, 100f));
+            Vector3 assetToCallPosition = player.transform.position + new Vector3(Random.Range(-100f, 100f), Random.Range(-10f, 5f), Random.Range(-100f, 100f));
             GameObject newAsset = Instantiate(assetToCall, assetToCallPosition, Quaternion.identity);
             newAsset.tag = "CallBox";
-            newAsset.transform.rotation = Quaternion.Euler(-90f, 0, 180f); // ??? x? ???? -90?? ??
+            newAsset.transform.rotation = Quaternion.Euler(-90f, 0f, 0f); // ??? x? ???? -90?? ??
 
             warningText.text = "Call 119"; // ???? ??? ??
             StartCoroutine(ClearTextAfterSeconds(5)); // 3? ?? ???? ??? ??? ??

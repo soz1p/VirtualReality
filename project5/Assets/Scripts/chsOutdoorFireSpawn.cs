@@ -6,7 +6,7 @@ public class chsOutdoorFireSpawn : MonoBehaviour
 {
     public GameObject VFX_Fire_01_Big;
     private Vector3 spawnOrigin = new Vector3(219, 90, 583); // ?? ???? ???? ????
-    private float spawnInterval = 6.0f;
+    private float spawnInterval = 10.0f;
 
     void Start()
     {
@@ -40,7 +40,7 @@ public class chsOutdoorFireSpawn : MonoBehaviour
         if (collidedObject.tag == "Player")
         {
             HealthBarController playerHP = collidedObject.GetComponent<HealthBarController>();
-            playerHP.DecreaseHealth(10.0f);
+            playerHP.DecreaseHealth(30.0f);
         }
     }
 }
