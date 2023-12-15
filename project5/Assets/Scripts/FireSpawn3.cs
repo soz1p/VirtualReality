@@ -7,12 +7,12 @@ public class FireSpawner1 : MonoBehaviour
     public GameObject VFX_Fire_01_Medium;
     public GameObject VFX_Fire_01_Big_Smoke;
     public GameObject VFX_Fire_Floor_01;
-    private Vector3 spawnOrigin = new Vector3(-1, 0, 3); // 첫 스폰 초기 좌표
-    private float spawnInterval = 3.0f;
+    private Vector3 spawnOrigin1 = new Vector3(-4, 0, -2); // 첫 스폰 초기 좌표
+    private float spawnInterval1 = 3.0f;
 
     void Start()
     {
-        InvokeRepeating("SpawnFire", spawnInterval, spawnInterval); // 게임 시작 후 3초 이후에 첫 Fire 생성, 그 이후에는 3초 마다 Fire 생성
+        InvokeRepeating("SpawnFire", spawnInterval1, spawnInterval1); // 게임 시작 후 3초 이후에 첫 Fire 생성, 그 이후에는 3초 마다 Fire 생성
     }
 
     void SpawnFire()
@@ -21,7 +21,7 @@ public class FireSpawner1 : MonoBehaviour
         float randomY = Random.Range(0f, 0.2f);
         float randomZ = Random.Range(-2f, 2f);
 
-        Vector3 spawnPosition = spawnOrigin + new Vector3(randomX, randomY, randomZ); // 첫 스폰 초기 좌표를 기준으로 랜덤 좌표 생성
+        Vector3 spawnPosition = spawnOrigin1 + new Vector3(randomX, randomY, randomZ); // 첫 스폰 초기 좌표를 기준으로 랜덤 좌표 생성
 
         GameObject fire;
 

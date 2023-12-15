@@ -17,9 +17,9 @@ public class FireSpawner : MonoBehaviour
 
     void SpawnFire()
     {
-        float randomX = Random.Range(-1f, 1f);
+        float randomX = Random.Range(-2f, 2f);
         float randomY = Random.Range(0f, 0.2f);
-        float randomZ = Random.Range(-1f, 1f);
+        float randomZ = Random.Range(-2f, 2f);
 
         Vector3 spawnPosition = spawnOrigin + new Vector3(randomX, randomY, randomZ); // 첫 스폰 초기 좌표를 기준으로 랜덤 좌표 생성
 
